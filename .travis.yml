@@ -18,3 +18,15 @@ after_success:
 #   provider: heroku
 #   api_key: $HEROKU_API_KEY
 #   app: springtravisci
+
+deploy:
+  provider: elasticbeanstalk
+  region: eu-central-1
+  app: springtravisci
+  env: Springtravisci-env
+  bucket_name: elasticbeanstalk-eu-central-1-398100061250
+  bucket_path: springtravisci
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY

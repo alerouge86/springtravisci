@@ -23,7 +23,7 @@ deploy:
   provider: elasticbeanstalk
   region: eu-central-1
   app: springtravisci
-  env: Springtravisci-env
+  env: Springtravisci-env-1
   bucket_name: elasticbeanstalk-eu-central-1-398100061250
   bucket_path: springtravisci
   on:

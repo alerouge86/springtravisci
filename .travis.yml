@@ -1,6 +1,14 @@
+sudo: required
 language: java
-
 jdk: openjdk11
+
+services:
+  - docker
 
 script:
   - ./mvnw clean install -B
+
+after_success:
+  - docker build -t alerougex/springtravisci .
+  - echo "@DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  - docker push alerougex/springtravisci

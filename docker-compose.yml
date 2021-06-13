@@ -3,24 +3,24 @@ version: "3.1"
 services:
 
   springtravisci: 
-    depends_on: 
-      - mysql-db
+    # depends_on: 
+    #   - mysql-db
     build:
       dockerfile: Dockerfile
       context: ./
     ports: 
       - 9090:9090
-    env_file:
-      - ./env/backend.env
+    # env_file:
+    #   - ./env/backend.env
 
-  mysql-db:
-    image: mysql:5.6
-    ports:
-      - 3306:3306
-    env_file:
-      - ./env/db.env
-    volumes:
-      - springtravisci-volume:/var/lib/mysql
+#   mysql-db:
+#     image: mysql:5.6
+#     ports:
+#       - 3306:3306
+#     env_file:
+#       - ./env/db.env
+#     volumes:
+#       - springtravisci-volume:/var/lib/mysql
 
-volumes:
-  springtravisci-volume:
+# volumes:
+#   springtravisci-volume:

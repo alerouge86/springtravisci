@@ -13,20 +13,22 @@ after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   - docker push alerougex/springtravisci
 
-# # Deploy in heroku:
-# deploy:
-#   provider: heroku
-#   api_key: $HEROKU_API_KEY
-#   app: springtravisci
-
+# Deploy in heroku:
 deploy:
-  provider: elasticbeanstalk
-  region: eu-central-1
+  provider: heroku
+  api_key: $HEROKU_API_KEY
   app: springtravisci
-  env: Springtravisci-env-1
-  bucket_name: elasticbeanstalk-eu-central-1-398100061250
-  bucket_path: springtravisci
-  on:
-    branch: master
-  access_key_id: $AWS_ACCESS_KEY
-  secret_access_key: $AWS_SECRET_KEY
+
+
+# Deploy in AWS:
+# deploy:
+#   provider: elasticbeanstalk
+#   region: eu-central-1
+#   app: springtravisci
+#   env: Springtravisci-env-1
+#   bucket_name: elasticbeanstalk-eu-central-1-398100061250
+#   bucket_path: springtravisci
+#   on:
+#     branch: master
+#   access_key_id: $AWS_ACCESS_KEY
+#   secret_access_key: $AWS_SECRET_KEY

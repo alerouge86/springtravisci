@@ -8,6 +8,7 @@ public class SpringtravisciApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringtravisciApplication.class, args);
+		System.out.println("SpringtravisciApplication is running...");
 	}
 
 }

@@ -14,7 +14,13 @@ after_success:
   - docker push alerougex/springtravisci
 
 deploy:
-  provider: heroku
-  api_key:
-    secure: CN9eks7q4Nwl3yAOSSN+iiijtAMDmy/CgxV/zMlv24fmq9NJfkvjm7aGDeByX5DEgFKHXOU2o5YPOdnM/YePsF07wi7/v9FjKh8JRT23b+S0ladt2qoaQYJrM3+bn6ZHYBaYfGn+m/yMTgls1R6oZhWoC6k5myAilQg8NEUtFe7R61Zl/eAGtpuTnXFd/8ROrzQZzadb/nr5wr2aWx8CeUh2IyX3kOykijf8gXVNw8X2JCzwrMFfLlx7hcgyJBZM753pskY+yD6CtzFY4siiikrpxZHL4IX4HiiotQBTqzqY83RweuEJ0xKIBjymJGEuienkKARZm4diwm+AW8BJbPVweK13VNCzd83dgVJKlS/zXUlS2U91DiZAfRdaAUd1727f91W6+qyV0BHEt0C/5nuu3iHpD8PJwNJCeTrjBc9m5ZFdOqCNKzDIrOkOp4AMcX0OM5pFpYE7X67sL5nXdkgq7W97FiN6ldYWpbZev+2SSLtJanCQ4I3EwqHH7i5ash9T1HEckXQ9PpPBf9K5yc1at2GeXZRW/iJiHHEWMVpwbRKzLe4uC8OprXKhXQU34oRzek9MuZgIph8030oR0X9tIE7fZgv21a0Dm+PecAuiN9uJd90LODbbqBzUEhqKb+tj3eKuAiWjm69VUFWc4RdB178jBMy5+3zX/7VFlos=
+  provider: elasticbeanstalk
+  region: eu-central-1
   app: springtravisci
+  env: Springtravisci-env
+  bucket_name: elasticbeanstalk-eu-central-1-398100061250
+  bucket_path: springtravisci
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
